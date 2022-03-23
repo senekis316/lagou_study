@@ -1,4 +1,10 @@
-1.谈谈你是如何理解 JS 异步编程的，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务?
+### 												模块一
+
+#### 函数式编程与JS异步编程、手写Promise
+
+##### 简答题
+
+##### 一、谈谈你是如何理解JS异步编程的，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务？
 
 (1) JS的异步编程, 本质上使用了浏览器的多线程, 实现了多任务的并行执行
 
@@ -10,48 +16,6 @@
 目前绝大多数异步调用都是作为宏任务进行调度执行的, 而JS中的Promise & MutationObserver, Node中的process.nextTick会作为微任务进行调度执行.
 
 
-2.将下面异步代码使用Promise方式改进
-
-setTimeout(function() {
-    var a = 'hello'
-    setTimeout(function () {
-        var b = 'lagou'
-        setTimeout(function () {
-            var c = 'I ❤️ u'
-            console.log(a + b + c)
-        }, 10)
-    }, 10)
-}, 10)
-
-解答:
-
-function concat (str) {
-    return new Promise((resolve, reject) => setTimeout(() => resolve(str), 10))
-}
-
-concat('hello')
-    .then(str => concat(str + ' lagou'))
-    .then(str => concat(str + ' I ❤️ u'))
-    .then(str => console.log(str))
-
-### 												模块一
-
-#### 函数式编程与JS异步编程、手写Promise
-
-##### 简答题
-
-##### 一、谈谈你是如何理解JS异步编程的，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务？
-
-JS异步编程: JS异步编程, 本质上使用了浏览器的多线程, 实现了多任务的并行执行
-
-EventLoop: 是JS中的事件循环机制, JS会通过EventLoop去监听消息队列, 将消息队列中的任务按顺序进行执行
-
-消息队列: 用于存放异步任务的地方, 同步代码执行完成后, EventLoop会从消息队列中取出任务进行执行.
-
-微任务与宏任务: 异步任务可以分为微任务和宏任务, 微任务可以在被创建后, 直接开始执行, 而宏任务被创建后, 必须放入事件队列的末尾, 排队执行.
-目前绝大多数异步调用都是作为宏任务进行调度执行的, 而JS中的Promise & MutationObserver, Node中的process.nextTick会作为微任务进行调度执行.
-
-​		
 
 ##### 代码题
 
