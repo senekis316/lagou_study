@@ -3,14 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.21",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "yarn": "^1.22.18"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-flow": "^7.16.7",
+    "flow-bin": "^0.174.1"
+  },
+  "scripts": {
+    "flow": "flow",
+    "build": "babel src/ -d dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
